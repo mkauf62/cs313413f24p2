@@ -14,11 +14,12 @@ public class TestPerformance {
   // running time is in the tens of seconds)
   // TODO (optional) refactor to DRY
   // which of the two lists performs better as the size increases?
+  //The LinkedList performs better at a larger size
   private final int SIZE = 10;
 
   // TODO choose this value in such a way that you can observe an actual effect
   // for increasing problem sizes
-  private final int REPS = 1000000;
+  private final int REPS = 10000000;
 
   private List<Integer> arrayList;
 
@@ -42,33 +43,45 @@ public class TestPerformance {
 
   @Test
   public void testLinkedListAddRemove() {
+    long startTime = System.currentTimeMillis();
     for (var r = 0; r < REPS; r++) {
       linkedList.add(0, 77);
       linkedList.remove(0);
     }
+    long endTime = System.currentTimeMillis();
+    System.out.println("LinkedList Add/Remove Time: " + (endTime-startTime));
   }
 
   @Test
   public void testArrayListAddRemove() {
+    long startTime = System.currentTimeMillis();
     for (var r = 0; r < REPS; r++) {
       arrayList.add(0, 77);
       arrayList.remove(0);
     }
+    long endTime = System.currentTimeMillis();
+    System.out.println("ArrayList Add/Remove Time: " + (endTime - startTime));
   }
 
   @Test
   public void testLinkedListAccess() {
     var sum = 0L;
+    long startTime = System.currentTimeMillis();
     for (var r = 0; r < REPS; r++) {
       sum += linkedList.get(r % SIZE);
     }
+    long endTime = System.currentTimeMillis();
+    System.out.println("LinkedList Access Time: " + (endTime - startTime));
   }
 
   @Test
   public void testArrayListAccess() {
     var sum = 0L;
+    long startTime = System.currentTimeMillis();
     for (var r = 0; r < REPS; r++) {
       sum += arrayList.get(r % SIZE);
     }
+    long endTime = System.currentTimeMillis();
+    System.out.println("ArrayList Access Time: " + (endTime - startTime));
   }
 }

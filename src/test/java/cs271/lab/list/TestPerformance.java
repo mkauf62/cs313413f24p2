@@ -49,7 +49,7 @@ public class TestPerformance {
       linkedList.remove(0);
     }
     long endTime = System.currentTimeMillis();
-    System.out.println("LinkedList Add/Remove Time: " + (endTime-startTime));
+    System.out.println("LinkedList Add/Remove Time (ms): " + (endTime-startTime));
   }
 
   @Test
@@ -60,7 +60,7 @@ public class TestPerformance {
       arrayList.remove(0);
     }
     long endTime = System.currentTimeMillis();
-    System.out.println("ArrayList Add/Remove Time: " + (endTime - startTime));
+    System.out.println("ArrayList Add/Remove Time (ms): " + (endTime - startTime));
   }
 
   @Test
@@ -71,7 +71,7 @@ public class TestPerformance {
       sum += linkedList.get(r % SIZE);
     }
     long endTime = System.currentTimeMillis();
-    System.out.println("LinkedList Access Time: " + (endTime - startTime));
+    System.out.println("LinkedList Access Time (ms): " + (endTime - startTime));
   }
 
   @Test
@@ -82,6 +82,6 @@ public class TestPerformance {
       sum += arrayList.get(r % SIZE);
     }
     long endTime = System.currentTimeMillis();
-    System.out.println("ArrayList Access Time: " + (endTime - startTime));
+    System.out.println("ArrayList Access Time (ms): " + (endTime - startTime));
   }
 }
